@@ -7,7 +7,9 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>chat-online</name>
 	<description>Chat en ligne</description>
+	<packaging>pom</packaging>
     <modules>
         <module>chat</module>
+        <module>api-gateway</module>
     </modules>
 </project>
