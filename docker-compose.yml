@@ -26,15 +26,5 @@ services:
     depends_on:
       - mongodb
 
-  keycloak:
-    image: quay.io/keycloak/keycloak:23.0.3
-    container_name: keycloak
-    ports:
-      - 8800:8080
-    environment:
-      KEYCLOAK_ADMIN_PASSWORD: admin
-      KEYCLOAK_ADMIN: admin
-    command: start-dev
-
 volumes:
   mongodb_data:
