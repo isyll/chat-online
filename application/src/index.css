@@ -3,12 +3,30 @@
 @tailwind utilities;
 
 :root {
+  --bg-color: #1a2236;
+  --border-color: #293145;
+  --color: rgba(255, 255, 255, 0.75);
+  --link-color: #0062e1;
+  --link-hover-bg-color: #293145;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--color);
+}
+
+a {
+  color: var(--link-color);
 }
 
 @media (prefers-color-scheme: light) {

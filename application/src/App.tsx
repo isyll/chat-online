@@ -1,7 +1,12 @@
 import './App.css';
+import Sidenav from './components/Sidenav/Sidenav';
 
 function App() {
-  return <h1 className="font-bold underline">Hello world!</h1>;
+  return (
+    <div className="layout">
+      <Sidenav />
+    </div>
+  );
 }
 
 export default App;

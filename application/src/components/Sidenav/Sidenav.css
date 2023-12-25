@@ -1,0 +1,27 @@
+.navigation {
+  background-color: var(--bg-color);
+  border-right: 1px solid var(--border-color);
+}
+
+nav.navigation ul {
+  display: flex;
+  list-style-type: disc;
+}
+
+nav.navigation ul li {
+  list-style: none;
+}
+
+nav.navigation ul li > a {
+  transition: all 0.3s;
+  border-radius: 6px;
+}
+
+nav.navigation ul li > a.logo {
+  font-size: xx-large;
+  border-radius: 3px;
+}
+
+nav.navigation ul li > a:hover {
+  background-color: var(--link-hover-bg-color);
+}
