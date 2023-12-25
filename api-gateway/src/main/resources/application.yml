@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: api-gateway
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8800/realms/chat-online
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
   cloud:
     gateway:
       routes:
@@ -12,14 +18,14 @@ spring:
           predicates:
             - Path=/chat/**
           filters:
-            - AddResponseHeader=X-Powered-By,Api-gateway
+            - AddResponseHeader=X-Powered-By,Ibrahima Sylla
             - StripPrefix=1
         - id: user
           uri: lb://user
           predicates:
             - Path=/user/**
           filters:
-            - AddResponseHeader=X-Powered-By,Api-gateway
+            - AddResponseHeader=X-Powered-By,Ibrahima Sylla
             - StripPrefix=1
 
 eureka:
