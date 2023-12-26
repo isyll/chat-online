@@ -1,0 +1,23 @@
+.tt-translate-middle {
+  transform: translate(-50%, -50%) !important;
+}
+
+.tt-translate-middle-y {
+  transform: translateY(-50%) !important;
+}
+
+.tt-start-50 {
+  left: 50% !important;
+}
+
+.tt-top-50 {
+  top: 50% !important;
+}
+
+.tt-top-100 {
+  top: 100% !important;
+}
+
+.tt-start-100 {
+  left: 100% !important;
+}
