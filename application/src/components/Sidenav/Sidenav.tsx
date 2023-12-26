@@ -2,11 +2,21 @@ import './Sidenav.css';
 import { AiOutlineMessage } from 'react-icons/ai';
 import { LuMessageCircle } from 'react-icons/lu';
 import { FaRegUser } from 'react-icons/fa6';
-import { FaRegStar } from "react-icons/fa";
-import { FiArchive } from "react-icons/fi";
-import Tooltip from '../Tooltip/Tooltip';
+import { FaRegStar } from 'react-icons/fa';
+import { FiArchive } from 'react-icons/fi';
+import NavItem from '../NavItem/NavItem';
+import { useState } from 'react';
+
+export enum Tab {
+  chats,
+  friends,
+  favorites,
+  archived,
+}
 
 function Sidenav() {
+  const [currentTab, setCurrentTab] = useState(Tab.chats);
+
   return (
     <nav className="navigation">
       <div className="nav-group">
@@ -17,40 +27,52 @@ function Sidenav() {
             </a>
           </li>
           <li>
-            <Tooltip
-              className="active flex justify-center p-3 m-3"
+            <NavItem
+              className={
+                'flex justify-center p-3 m-3 ' +
+                (currentTab === Tab.chats ? ' active' : '')
+              }
               message="Discussions"
-              placement="right"
-              fill="var(--tooltip-bg-color)">
+              fill="var(--tooltip-bg-color)"
+              onSelect={() => setCurrentTab(Tab.chats)}>
               <LuMessageCircle />
-            </Tooltip>
+            </NavItem>
           </li>
           <li>
-            <Tooltip
-              className="flex justify-center p-3 m-3"
+            <NavItem
+              className={
+                'flex justify-center p-3 m-3' +
+                (currentTab === Tab.friends ? ' active' : '')
+              }
               message="Amis"
-              placement="right"
-              fill="var(--tooltip-bg-color)">
+              fill="var(--tooltip-bg-color)"
+              onSelect={() => setCurrentTab(Tab.friends)}>
               <FaRegUser />
-            </Tooltip>
+            </NavItem>
           </li>
           <li>
-            <Tooltip
-              className="flex justify-center p-3 m-3"
+            <NavItem
+              className={
+                'flex justify-center p-3 m-3' +
+                (currentTab === Tab.favorites ? ' active' : '')
+              }
               message="Favoris"
-              placement="right"
-              fill="var(--tooltip-bg-color)">
+              fill="var(--tooltip-bg-color)"
+              onSelect={() => setCurrentTab(Tab.favorites)}>
               <FaRegStar />
-            </Tooltip>
+            </NavItem>
           </li>
           <li>
-            <Tooltip
-              className="flex justify-center p-3 m-3"
+            <NavItem
+              className={
+                'flex justify-center p-3 m-3' +
+                (currentTab === Tab.archived ? ' active' : '')
+              }
               message="Archivés"
-              placement="right"
-              fill="var(--tooltip-bg-color)">
+              fill="var(--tooltip-bg-color)"
+              onSelect={() => setCurrentTab(Tab.archived)}>
               <FiArchive />
-            </Tooltip>
+            </NavItem>
           </li>
         </ul>
       </div>
