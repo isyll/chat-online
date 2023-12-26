@@ -1,6 +1,10 @@
 import './Sidenav.css';
 import { AiOutlineMessage } from 'react-icons/ai';
 import { LuMessageCircle } from 'react-icons/lu';
+import { FaRegUser } from 'react-icons/fa6';
+import { FaRegStar } from "react-icons/fa";
+import { FiArchive } from "react-icons/fi";
+import Tooltip from '../Tooltip/Tooltip';
 
 function Sidenav() {
   return (
@@ -13,12 +17,40 @@ function Sidenav() {
             </a>
           </li>
           <li>
-            <a href="/" className="active flex justify-center p-5 m-3 relative">
+            <Tooltip
+              className="active flex justify-center p-3 m-3"
+              message="Discussions"
+              placement="right"
+              fill="var(--tooltip-bg-color)">
               <LuMessageCircle />
-              <div className="text-sm rounded p-2 absolute right-0 mt-2">
-                tooltip defa
-              </div>
-            </a>
+            </Tooltip>
+          </li>
+          <li>
+            <Tooltip
+              className="flex justify-center p-3 m-3"
+              message="Amis"
+              placement="right"
+              fill="var(--tooltip-bg-color)">
+              <FaRegUser />
+            </Tooltip>
+          </li>
+          <li>
+            <Tooltip
+              className="flex justify-center p-3 m-3"
+              message="Favoris"
+              placement="right"
+              fill="var(--tooltip-bg-color)">
+              <FaRegStar />
+            </Tooltip>
+          </li>
+          <li>
+            <Tooltip
+              className="flex justify-center p-3 m-3"
+              message="Archivés"
+              placement="right"
+              fill="var(--tooltip-bg-color)">
+              <FiArchive />
+            </Tooltip>
           </li>
         </ul>
       </div>

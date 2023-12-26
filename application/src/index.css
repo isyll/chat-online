@@ -8,6 +8,8 @@
   --color: rgba(255, 255, 255, 0.75);
   --link-color: #0062e1;
   --link-hover-bg-color: #293145;
+  --tab-active-bg-color: #0a80ff;
+  --tooltip-bg-color: #6C757D;
 }
 
 * {
