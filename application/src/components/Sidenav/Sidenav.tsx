@@ -5,7 +5,6 @@ import { FaRegUser } from 'react-icons/fa6';
 import { FaRegStar } from 'react-icons/fa';
 import { FiArchive } from 'react-icons/fi';
 import NavItem from '../NavItem/NavItem';
-import { useState } from 'react';
 
 export enum Tab {
   chats,
@@ -14,9 +13,13 @@ export enum Tab {
   archived,
 }
 
-function Sidenav() {
-  const [currentTab, setCurrentTab] = useState(Tab.chats);
-
+function Sidenav({
+  onSelectTab,
+  currentTab,
+}: {
+  onSelectTab: (tab: Tab) => void;
+  currentTab: Tab;
+}) {
   return (
     <nav className="navigation">
       <div className="nav-group">
@@ -34,7 +37,7 @@ function Sidenav() {
               }
               message="Discussions"
               fill="var(--tooltip-bg-color)"
-              onSelect={() => setCurrentTab(Tab.chats)}>
+              onSelect={() => onSelectTab(Tab.chats)}>
               <LuMessageCircle />
             </NavItem>
           </li>
@@ -46,7 +49,7 @@ function Sidenav() {
               }
               message="Amis"
               fill="var(--tooltip-bg-color)"
-              onSelect={() => setCurrentTab(Tab.friends)}>
+              onSelect={() => onSelectTab(Tab.friends)}>
               <FaRegUser />
             </NavItem>
           </li>
@@ -58,7 +61,7 @@ function Sidenav() {
               }
               message="Favoris"
               fill="var(--tooltip-bg-color)"
-              onSelect={() => setCurrentTab(Tab.favorites)}>
+              onSelect={() => onSelectTab(Tab.favorites)}>
               <FaRegStar />
             </NavItem>
           </li>
@@ -70,7 +73,7 @@ function Sidenav() {
               }
               message="Archivés"
               fill="var(--tooltip-bg-color)"
-              onSelect={() => setCurrentTab(Tab.archived)}>
+              onSelect={() => onSelectTab(Tab.archived)}>
               <FiArchive />
             </NavItem>
           </li>

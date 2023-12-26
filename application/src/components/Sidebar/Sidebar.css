@@ -1,0 +1,22 @@
+.sidebar {
+  border-right: 1px solid var(--border-color);
+  width: 300px;
+}
+
+.sidebar header {
+  height: 80px;
+}
+
+.sidebar header > ul li {
+  list-style: none;
+}
+
+.sidebar header > ul li a {
+  border-radius: 3px;
+  font-size: large;
+  color: var(--color);
+  cursor: pointer;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  margin: 7px;
+}
