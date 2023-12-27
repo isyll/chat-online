@@ -1,5 +1,14 @@
+import { useState } from 'react';
+import { getMesssages } from '../../api/chatService';
+import { Message } from '../../types/Message';
+
 function ChatListItems() {
-  return <></>;
+  const [messages, setMessages] = useState<Message[]>([]);
+
+  getMesssages().then((res) => {
+    setMessages(res);
+  });
+  return <ul></ul>;
 }
 
 export default ChatListItems;
