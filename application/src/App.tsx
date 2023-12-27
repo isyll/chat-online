@@ -6,11 +6,14 @@ import ChatList from './components/Sidebar/tabs/ChatList';
 
 function App() {
   const [currentTab, setCurrentTab] = useState(Tab.chats);
+  let content: JSX.Element | undefined;
+
+  if (currentTab === Tab.chats) content = <ChatList />;
 
   return (
     <div className="layout">
       <Sidenav onSelectTab={setCurrentTab} currentTab={currentTab} />
-      <Sidebar>{currentTab === Tab.chats ? <ChatList /> : ''}</Sidebar>
+      <Sidebar>{content}</Sidebar>
     </div>
   );
 }
