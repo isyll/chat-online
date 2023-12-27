@@ -4,7 +4,7 @@ import { LuMessageCircle } from 'react-icons/lu';
 import { FaRegUser } from 'react-icons/fa6';
 import { FaRegStar } from 'react-icons/fa';
 import { FiArchive } from 'react-icons/fi';
-import NavItem from '../NavItem/NavItem';
+import NavItem from '../../components/NavItem/NavItem';
 
 export enum Tab {
   chats,
