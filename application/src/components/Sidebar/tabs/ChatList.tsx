@@ -3,7 +3,7 @@ import { FiPlusCircle } from 'react-icons/fi';
 
 function ChatList() {
   return (
-    <div>
+    <div className=" flex flex-col content-center">
       <header className="flex justify-between items-center px-6">
         <strong>Discussions</strong>
         <ul>
@@ -19,6 +19,13 @@ function ChatList() {
           </li>
         </ul>
       </header>
+      <form className="flex justify-center px-6">
+        <input
+          type="text"
+          className="chat-search-input w-full"
+          placeholder="Rechercher une discussion"
+        />
+      </form>
     </div>
   );
 }
