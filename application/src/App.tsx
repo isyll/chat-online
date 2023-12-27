@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import './App.css';
-import Sidebar from './components/Sidebar/Sidebar';
-import Sidenav, { Tab } from './components/Sidenav/Sidenav';
-import ChatListLayout from './components/Sidebar/ChatList/ChatListLayout';
+import Sidenav, { Tab } from './layout/Sidenav/Sidenav';
+import Sidebar from './layout/Sidebar/Sidebar';
+import ChatList from './layout/ChatList/ChatList';
 
 function App() {
   const [currentTab, setCurrentTab] = useState(Tab.chats);
   let content: JSX.Element | undefined;
 
-  if (currentTab === Tab.chats) content = <ChatListLayout />;
+  if (currentTab === Tab.chats) content = <ChatList />;
 
   return (
     <div className="layout">

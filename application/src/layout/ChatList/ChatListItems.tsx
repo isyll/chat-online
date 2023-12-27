@@ -1,5 +1,5 @@
-function ChatList() {
+function ChatListItems() {
   return <></>;
 }
 
-export default ChatList;
+export default ChatListItems;
