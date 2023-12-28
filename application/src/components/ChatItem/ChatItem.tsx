@@ -1,3 +1,6 @@
+import { formatDate } from '../../utils/formatDate';
+import './ChatItem.css';
+
 function ChatItem({
   name,
   message,
@@ -19,7 +22,7 @@ function ChatItem({
           <h5 className="text-primary">{name}</h5>
           <p className="message">{message}</p>
         </div>
-        <div className="actions">{date.toString()}</div>
+        <div className="actions">{formatDate(date, 'd/m/Y')}</div>
       </div>
     </li>
   );
