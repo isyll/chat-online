@@ -13,7 +13,7 @@ function ChatItem({
   date: Date;
 }) {
   return (
-    <li className="flex p-4 gap-2 cursor-pointer">
+    <li className="flex p-4 gap-2 cursor-pointer wrapper">
       <figure className="avatar w-10">
         <img src={avatar} alt="image" className="rounded-full" />
       </figure>
