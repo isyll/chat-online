@@ -1,4 +1,4 @@
-import { formatDate } from '../../utils/formatDate';
+import { formatDateDynamic } from '../../utils/formatDateDynamic';
 import './ChatItem.css';
 
 function ChatItem({
@@ -13,16 +13,16 @@ function ChatItem({
   date: Date;
 }) {
   return (
-    <li className="flex">
-      <figure className="avatar w-8 h-8">
+    <li className="flex p-4 gap-2 cursor-pointer">
+      <figure className="avatar w-10">
         <img src={avatar} alt="image" className="rounded-full" />
       </figure>
-      <div className="body">
-        <div>
+      <div className="flex justify-between w-full">
+        <div className="flex flex-col justify-between">
           <h5 className="text-primary">{name}</h5>
-          <p className="message">{message}</p>
+          <p className="message text-xs opacity-70">{message}</p>
         </div>
-        <div className="actions">{formatDate(date, 'd/m/Y')}</div>
+        <div className="mt-auto mb-1 text-primary text-xs">{formatDateDynamic(date)}</div>
       </div>
     </li>
   );
