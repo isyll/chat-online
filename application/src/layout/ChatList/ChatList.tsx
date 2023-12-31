@@ -4,7 +4,7 @@ import ChatListSearch from './ChatListSearch';
 
 function ChatList() {
   return (
-    <div className=" flex flex-col content-center">
+    <div className="flex flex-col h-screen">
       <ChatListHeader />
       <ChatListSearch />
       <ChatListItems />

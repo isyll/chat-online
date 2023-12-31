@@ -4,6 +4,10 @@
   text-overflow: ellipsis;
 }
 
+.wrapper {
+  border-bottom: 1px solid var(--border-color);
+}
+
 .wrapper:hover {
   background-color: var(--link-hover-bg-color);
 }

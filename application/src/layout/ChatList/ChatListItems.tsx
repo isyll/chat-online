@@ -11,17 +11,19 @@ function ChatListItems() {
     setMessages(res);
   });
   return (
-    <ul>
-      {messages.map((msg, i) => (
-        <ChatItem
-          key={i}
-          name="Jonh Doe"
-          message={msg.content || ''}
-          avatar={avatarUrl}
-          date={new Date(msg.timestamp)}
-        />
-      ))}
-    </ul>
+    <div className="overflow-y-scroll outline-none flex flex-col flex-1">
+      <ul>
+        {messages.map((msg, i) => (
+          <ChatItem
+            key={i}
+            name="Jonh Doe"
+            message={msg.content || ''}
+            avatar={avatarUrl}
+            date={new Date(msg.timestamp)}
+          />
+        ))}
+      </ul>
+    </div>
   );
 }
 
