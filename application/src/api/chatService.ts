@@ -7,3 +7,11 @@ export function getMesssages() {
     return resolve(fakeChats);
   });
 }
+
+export function getMessagesByUserId(userId: string) {
+  const messages = fakeChats.filter((msg) => msg.userId === userId);
+  return new Promise<Message[]>((resolve, reject) => {
+    if (messages.length === 0) reject('Erreur');
+    return resolve(messages);
+  });
+}

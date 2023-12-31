@@ -5,13 +5,7 @@ import { FaRegUser } from 'react-icons/fa6';
 import { FaRegStar } from 'react-icons/fa';
 import { FiArchive } from 'react-icons/fi';
 import NavItem from '../../components/NavItem/NavItem';
-
-export enum Tab {
-  chats,
-  friends,
-  favorites,
-  archived,
-}
+import { Tab } from '../../types/Tab';
 
 function Sidenav({
   onSelectTab,
