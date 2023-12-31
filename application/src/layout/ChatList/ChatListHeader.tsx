@@ -1,5 +1,5 @@
 import { FiPlusCircle } from 'react-icons/fi';
-import { GoPeople } from 'react-icons/go';
+import { MdOutlinePeopleAlt } from 'react-icons/md';
 
 function ChatListHeader() {
   return (
@@ -7,12 +7,12 @@ function ChatListHeader() {
       <strong>Discussions</strong>
       <ul>
         <li className="inline-block">
-          <a className="inline-block hover:scale-110 active:scale-90 ease-out duration-150">
-            <GoPeople />
+          <a className="inline-block hover:scale-110 active:scale-90 ease-out duration-150 text-lg">
+            <MdOutlinePeopleAlt />
           </a>
         </li>
         <li className="inline-block">
-          <a className="inline-block hover:scale-110 active:scale-90 ease-out duration-150">
+          <a className="inline-block hover:scale-110 active:scale-90 ease-out duration-150 text-lg">
             <FiPlusCircle />
           </a>
         </li>

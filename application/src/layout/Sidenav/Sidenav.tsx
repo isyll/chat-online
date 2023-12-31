@@ -32,7 +32,7 @@ function Sidenav({
           <li>
             <NavItem
               className={
-                'flex justify-center p-3 m-3 ' +
+                'flex justify-center p-3 m-4' +
                 (currentTab === Tab.chats ? ' active' : '')
               }
               message="Discussions"
@@ -44,7 +44,7 @@ function Sidenav({
           <li>
             <NavItem
               className={
-                'flex justify-center p-3 m-3' +
+                'flex justify-center p-3 m-4' +
                 (currentTab === Tab.friends ? ' active' : '')
               }
               message="Amis"
@@ -56,7 +56,7 @@ function Sidenav({
           <li>
             <NavItem
               className={
-                'flex justify-center p-3 m-3' +
+                'flex justify-center p-3 m-4' +
                 (currentTab === Tab.favorites ? ' active' : '')
               }
               message="Favoris"
@@ -68,7 +68,7 @@ function Sidenav({
           <li>
             <NavItem
               className={
-                'flex justify-center p-3 m-3' +
+                'flex justify-center p-3 m-4' +
                 (currentTab === Tab.archived ? ' active' : '')
               }
               message="Archivés"
