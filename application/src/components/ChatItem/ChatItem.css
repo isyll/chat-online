@@ -1,0 +1,9 @@
+.message {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wrapper:hover {
+  background-color: var(--link-hover-bg-color);
+}

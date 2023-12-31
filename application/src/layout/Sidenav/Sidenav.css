@@ -1,0 +1,38 @@
+nav.navigation {
+  background-color: var(--bg-color);
+  border-right: 1px solid var(--border-color);
+}
+
+nav.navigation ul {
+  display: flex;
+}
+
+nav.navigation ul li {
+  list-style: none;
+}
+
+nav.navigation ul li > * {
+  cursor: pointer;
+  font-size: 2em;
+  transition: all 0.3s;
+  border-radius: 6px;
+  color: var(--color);
+}
+
+nav.navigation ul li > *.logo {
+  font-size: 3em;
+  border-radius: 3px;
+  color: var(--link-color);
+}
+
+nav.navigation ul li > *.active {
+  background-color: var(--tab-active-bg-color);
+}
+
+nav.navigation ul li > *:not(.active):hover {
+  background-color: var(--link-hover-bg-color);
+}
+
+div.tooltip {
+  background-color: var(--tooltip-bg-color);
+}
