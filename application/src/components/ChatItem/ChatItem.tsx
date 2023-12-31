@@ -19,7 +19,7 @@ function ChatItem({
       </figure>
       <div className="flex justify-between w-full">
         <div className="flex flex-col justify-between">
-          <h5 className="text-primary">{name}</h5>
+          <h5 className="text-primary font-bold">{name}</h5>
           <p className="message text-xs opacity-70">{message}</p>
         </div>
         <div className="mt-auto mb-1 text-primary text-xs">{formatDateDynamic(date)}</div>
