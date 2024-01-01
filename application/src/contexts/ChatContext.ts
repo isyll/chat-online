@@ -10,7 +10,7 @@ interface ChatParams {
   onSelectChat: (msg: Message) => void;
 }
 
-export const ChatParamsContext = createContext<ChatParams>({
+export const ChatContext = createContext<ChatParams>({
   isLoading: false,
   chats: [],
   selectedChat: undefined,
