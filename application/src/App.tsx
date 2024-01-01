@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { KeyboardEvent, useEffect, useState } from 'react';
 import Sidenav from './layout/Sidenav/Sidenav';
 import Sidebar from './layout/Sidebar/Sidebar';
 import ChatList from './layout/ChatList/ChatList';
@@ -7,6 +7,7 @@ import { Message } from './types/Message';
 import { getChats, getMessagesByUserId } from './api/chatService';
 import { ChatParamsContext } from './contexts/ChatParamsContext';
 import { Tab } from './types/Tab';
+import ChatPlaceholder from './layout/ChatPlaceholder/ChatPlaceholder';
 
 function App() {
   const [currentTab, setCurrentTab] = useState(Tab.chats);
@@ -14,7 +15,7 @@ function App() {
   const [chats, setChats] = useState<Message[]>([]);
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  let sidebarContent: JSX.Element | undefined;
+  let sidebarContent: JSX.Element;
   useEffect(() => {
     getChats().then((res) => {
       setTimeout(() => {
@@ -25,17 +26,33 @@ function App() {
   }, []);
   useEffect(() => {
     if (selectedChat) {
-      getMessagesByUserId(selectedChat?.userId!).then((msgs) => {
+      getMessagesByUserId(selectedChat.userId).then((msgs) => {
         setMessages(msgs);
       });
     } else {
+      /* empty */
     }
   }, [selectedChat]);
 
-  if (currentTab === Tab.chats) sidebarContent = <ChatList />;
+  const handleKeyPress = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      setSelectedChat(undefined);
+      setMessages([]);
+    }
+  };
+
+  if (currentTab === Tab.chats) {
+    sidebarContent = <ChatList />;
+  } else if (currentTab === Tab.archived) {
+    sidebarContent = <ChatList />;
+  } else if (currentTab === Tab.friends) {
+    sidebarContent = <ChatList />;
+  } else {
+    sidebarContent = <ChatList />;
+  }
 
   return (
-    <div className="h-screen flex">
+    <div className="h-screen flex" onKeyDown={handleKeyPress} tabIndex={0}>
       <ChatParamsContext.Provider
         value={{
           isLoading: isLoading,
@@ -46,7 +63,7 @@ function App() {
         }}>
         <Sidenav onSelectTab={setCurrentTab} currentTab={currentTab} />
         <Sidebar>{sidebarContent}</Sidebar>
-        <Chat messages={messages} />
+        {messages.length ? <Chat messages={messages} /> : <ChatPlaceholder />}
       </ChatParamsContext.Provider>
     </div>
   );
