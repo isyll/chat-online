@@ -3,6 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": {
+    "email": "isyll711@gmail.com",
+    "name": "Ibrahima Sylla",
+    "url": "https://isyll.github.io"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

@@ -4,7 +4,7 @@ function ChatListSearch() {
       <input
         id="searchChat"
         type="text"
-        className="chat-search-input w-full rounded-sm"
+        className="bg-primary border border-secondary w-full rounded-sm py-2 px-3 outline-none focus:border-blue focus:border"
         placeholder="Rechercher une discussion"
       />
     </form>

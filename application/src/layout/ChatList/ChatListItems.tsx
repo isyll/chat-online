@@ -1,36 +1,31 @@
-import { useEffect, useState } from 'react';
-import { getMesssages } from '../../api/chatService';
-import { Message } from '../../types/Message';
-import ChatItem from '../../components/ChatItem/ChatItem';
-import { avatarUrl } from '../../api/fakeData';
-import ChatItemLoader from '../../components/ChatItemLoader/ChatItemLoader';
+import { useContext } from 'react';
+import ChatItem from '../../components/ChatItem';
+import ChatItemLoader from '../../components/ChatItemLoader';
+import { ChatParamsContext } from '../../contexts/ChatParamsContext';
 
 function ChatListItems() {
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    getMesssages().then((res) => {
-      setTimeout(() => {
-        setMessages(res);
-        setIsLoading(false);
-      }, 2000);
-    });
-  }, []);
+  const chatContext = useContext(ChatParamsContext);
 
   return (
     <div className="overflow-y-scroll outline-none flex flex-col flex-1">
       <ul>
-        {isLoading
+        {chatContext.isLoading
           ? Array.from<number>({ length: 6 }).map(() => (
               <ChatItemLoader key={Math.random()} />
             ))
-          : messages.map((msg, i) => (
+          : chatContext.chats.map((msg, i) => (
               <ChatItem
+                current={chatContext.selectedChat?.messageId === msg.messageId}
+                messageId={msg.messageId}
+                onClick={(id) =>
+                  chatContext.onSelectChat(
+                    chatContext.chats.find((m) => m.messageId === id)!
+                  )
+                }
                 key={i}
-                name="Jonh Doe"
+                name={msg.userName}
                 message={msg.content || ''}
-                avatar={avatarUrl}
+                avatar={msg.userAvatarUrl}
                 date={new Date(msg.timestamp)}
               />
             ))}

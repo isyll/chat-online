@@ -1,5 +1,3 @@
-import './NavItem.css';
-
 function NavItem({
   children,
   message,
@@ -18,7 +16,7 @@ function NavItem({
       <div className="relative">
         {children}
         <div
-          className="hidden group-hover:block text-sm rounded p-2 absolute tt-start-100 tt-top-50 tt-translate-middle-y ml-5"
+          className="transform -translate-y-1/2 top-1/2 hidden group-hover:block text-sm rounded p-2 absolute left-full ml-5"
           style={{ backgroundColor: fill }}>
           {message}
         </div>
@@ -26,7 +24,7 @@ function NavItem({
           width="1.25rem"
           height="1.75rem"
           viewBox="0 0 16 16"
-          className="hidden group-hover:block absolute tt-start-100 tt-top-50 tt-translate-middle-y ml-2"
+          className="transform -translate-y-1/2 hidden group-hover:block absolute left-full top-1/2 ml-2"
           fill={fill}
           xmlns="http://www.w3.org/2000/svg">
           <path
