@@ -28,12 +28,12 @@ function ChatItem({
       <Avatar src={avatar} />
       <div className="flex justify-between w-full">
         <div className="flex flex-col justify-between">
-          <h5 className="text-primary">{name}</h5>
+          <h6 className="text-white">{name}</h6>
           <p className="text-xs opacity-70 whitespace-nowrap overflow-hidden text-ellipsis">
             {message}
           </p>
         </div>
-        <div className="mt-auto mb-1 text-primary text-xs">{formatDateDynamic(date)}</div>
+        <div className="mt-auto mb-1 text-white text-xs">{formatDateDynamic(date)}</div>
       </div>
     </li>
   );
