@@ -4,41 +4,50 @@ import Sidebar from './layout/Sidebar/Sidebar';
 import ChatList from './layout/ChatList/ChatList';
 import Chat from './layout/Chat/Chat';
 import { Message } from './types/Message';
-import { getMesssages } from './api/chatService';
-import { chatParamsContext } from './contexts/chatParamsContext';
+import { getChats, getMessagesByUserId } from './api/chatService';
+import { ChatParamsContext } from './contexts/ChatParamsContext';
 import { Tab } from './types/Tab';
 
 function App() {
   const [currentTab, setCurrentTab] = useState(Tab.chats);
   const [selectedChat, setSelectedChat] = useState<Message | undefined>();
+  const [chats, setChats] = useState<Message[]>([]);
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  let sidebarContent: JSX.Element | undefined;
   useEffect(() => {
-    getMesssages().then((res) => {
+    getChats().then((res) => {
       setTimeout(() => {
-        setMessages(res);
+        setChats(res);
         setIsLoading(false);
       }, 2300);
     });
   }, []);
-  let sidebarContent: JSX.Element | undefined;
+  useEffect(() => {
+    if (selectedChat) {
+      getMessagesByUserId(selectedChat?.userId!).then((msgs) => {
+        setMessages(msgs);
+      });
+    } else {
+    }
+  }, [selectedChat]);
 
   if (currentTab === Tab.chats) sidebarContent = <ChatList />;
 
   return (
     <div className="h-screen flex">
-      <chatParamsContext.Provider
+      <ChatParamsContext.Provider
         value={{
           isLoading: isLoading,
-          messages: messages,
+          chats: chats,
           currentTab: currentTab,
           selectedChat: selectedChat,
           onSelectChat: setSelectedChat,
         }}>
         <Sidenav onSelectTab={setCurrentTab} currentTab={currentTab} />
         <Sidebar>{sidebarContent}</Sidebar>
-        <Chat />
-      </chatParamsContext.Provider>
+        <Chat messages={messages} />
+      </ChatParamsContext.Provider>
     </div>
   );
 }

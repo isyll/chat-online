@@ -8,6 +8,8 @@ export const fakeChats: Message[] = [
   {
     messageId: '12345',
     userId: 'user123',
+    userAvatarUrl: avatarUrl,
+    userName: 'John Doe',
     content: 'Salut, comment ça va ?',
     timestamp: '2023-01-01T12:34:56',
     attachments: [
@@ -20,6 +22,8 @@ export const fakeChats: Message[] = [
   {
     messageId: '12346',
     userId: 'user123',
+    userAvatarUrl: avatarUrl,
+    userName: 'John Doe',
     content: 'Salut, comment ça va ?',
     timestamp: '2023-01-01T12:34:56',
     attachments: [
@@ -32,6 +36,8 @@ export const fakeChats: Message[] = [
   {
     messageId: '12347',
     userId: 'user123',
+    userAvatarUrl: avatarUrl,
+    userName: 'John Doe',
     content: 'Salut, comment ça va ?',
     timestamp: '2023-01-01T12:34:56',
     attachments: [
@@ -44,6 +50,8 @@ export const fakeChats: Message[] = [
   {
     messageId: '12348',
     userId: 'user123',
+    userAvatarUrl: avatarUrl,
+    userName: 'John Doe',
     content: 'Salut, comment ça va ?',
     timestamp: '2023-01-01T12:34:56',
     attachments: [
@@ -56,6 +64,8 @@ export const fakeChats: Message[] = [
   {
     messageId: '12349',
     userId: 'user123',
+    userAvatarUrl: avatarUrl,
+    userName: 'John Doe',
     content: 'Salut, comment ça va ?',
     timestamp: '2023-01-01T12:34:56',
     attachments: [
@@ -68,6 +78,8 @@ export const fakeChats: Message[] = [
   {
     messageId: '12350',
     userId: 'user123',
+    userAvatarUrl: avatarUrl,
+    userName: 'John Doe',
     content: 'Salut, comment ça va ?',
     timestamp: '2023-01-01T12:34:56',
     attachments: [
@@ -80,6 +92,8 @@ export const fakeChats: Message[] = [
   {
     messageId: '12351',
     userId: 'user123',
+    userAvatarUrl: avatarUrl,
+    userName: 'John Doe',
     content: 'Salut, comment ça va ?',
     timestamp: '2023-01-01T12:34:56',
     attachments: [
@@ -92,6 +106,8 @@ export const fakeChats: Message[] = [
   {
     messageId: '12352',
     userId: 'user123',
+    userAvatarUrl: avatarUrl,
+    userName: 'John Doe',
     content: 'Salut, comment ça va ?',
     timestamp: '2023-01-01T12:34:56',
     attachments: [
@@ -104,6 +120,8 @@ export const fakeChats: Message[] = [
   {
     messageId: '12353',
     userId: 'user123',
+    userAvatarUrl: avatarUrl,
+    userName: 'John Doe',
     content: 'Salut, comment ça va ?',
     timestamp: '2023-01-01T12:34:56',
     attachments: [
@@ -116,6 +134,8 @@ export const fakeChats: Message[] = [
   {
     messageId: '12354',
     userId: 'user123',
+    userAvatarUrl: avatarUrl,
+    userName: 'John Doe',
     content: 'Salut, comment ça va ?',
     timestamp: '2023-01-01T12:34:56',
     attachments: [
@@ -128,6 +148,8 @@ export const fakeChats: Message[] = [
   {
     messageId: '12355',
     userId: 'user123',
+    userAvatarUrl: avatarUrl,
+    userName: 'John Doe',
     content: 'Salut, comment ça va ?',
     timestamp: '2023-01-01T12:34:56',
     attachments: [
@@ -136,5 +158,17 @@ export const fakeChats: Message[] = [
         url: 'https://example.com/image.jpg',
       },
     ],
+  },
+];
+
+export const fakeMessages: Message[] = [
+  {
+    content: 'hello',
+    userId: 'user123',
+    attachments: [],
+    messageId: '1234',
+    timestamp: '2023-12-31T12:34:56',
+    userAvatarUrl: avatarUrl,
+    userName: 'John Doe',
   },
 ];

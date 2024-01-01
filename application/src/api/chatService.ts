@@ -1,7 +1,7 @@
 import { Message } from '../types/Message';
 import { fakeChats } from './fakeData';
 
-export function getMesssages() {
+export function getChats() {
   return new Promise<Message[]>((resolve, reject) => {
     if (fakeChats.length === 0) reject('Erreur');
     return resolve(fakeChats);

@@ -4,15 +4,15 @@ import { Tab } from '../types/Tab';
 
 interface ChatParams {
   isLoading: boolean;
-  messages: Message[];
+  chats: Message[];
   selectedChat?: Message;
   currentTab: Tab;
   onSelectChat: (msg: Message) => void;
 }
 
-export const chatParamsContext = createContext<ChatParams>({
+export const ChatParamsContext = createContext<ChatParams>({
   isLoading: false,
-  messages: [],
+  chats: [],
   selectedChat: undefined,
   currentTab: Tab.chats,
   onSelectChat: () => null,
