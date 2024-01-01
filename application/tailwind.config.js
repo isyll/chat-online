@@ -16,6 +16,10 @@ export default {
       height: {
         80: '80px',
       },
+      fontSize: {
+        '2em': '2em',
+        '3em': '3em'
+      },
     },
   },
   plugins: [],
