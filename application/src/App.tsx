@@ -5,7 +5,7 @@ import ChatList from './layout/ChatList/ChatList';
 import Chat from './layout/Chat/Chat';
 import { Message } from './types/Message';
 import { getChats, getMessagesByUserId } from './api/chatService';
-import { ChatParamsContext } from './contexts/ChatParamsContext';
+import { ChatContext } from './contexts/ChatContext';
 import { Tab } from './types/Tab';
 import ChatPlaceholder from './layout/ChatPlaceholder/ChatPlaceholder';
 
@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div className="h-screen flex" onKeyDown={handleKeyPress} tabIndex={0}>
-      <ChatParamsContext.Provider
+      <ChatContext.Provider
         value={{
           isLoading: isLoading,
           chats: chats,
@@ -64,7 +64,7 @@ function App() {
         <Sidenav onSelectTab={setCurrentTab} currentTab={currentTab} />
         <Sidebar>{sidebarContent}</Sidebar>
         {messages.length ? <Chat messages={messages} /> : <ChatPlaceholder />}
-      </ChatParamsContext.Provider>
+      </ChatContext.Provider>
     </div>
   );
 }

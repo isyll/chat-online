@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import Avatar from '../../components/Avatar';
-import { ChatParamsContext } from '../../contexts/ChatParamsContext';
+import { ChatContext } from '../../contexts/ChatContext';
 import defaultAvatar from '../../assets/defaultAvatar.ico';
 import { FaEllipsisH } from 'react-icons/fa';
 
 function ChatHeader() {
-  const chatContext = useContext(ChatParamsContext);
+  const chatContext = useContext(ChatContext);
 
   return (
     <header className="border-b border-secondary px-6 py-4 flex justify-between">
