@@ -1,5 +1,6 @@
 import { AttachmentType } from '../types/Attachment';
 import { Message } from '../types/Message';
+import UserData from '../types/UserData';
 
 export const avatarUrl =
   'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
@@ -172,3 +173,11 @@ export const fakeMessages: Message[] = [
     userName: 'John Doe',
   },
 ];
+
+export const userData: UserData = {
+  name: 'Assane diop',
+  email: 'a.diop@gmail.com',
+  userId: 'user345',
+  avatar:
+    'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+};
