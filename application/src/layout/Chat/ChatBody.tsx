@@ -15,7 +15,7 @@ function ChatBody({ messages }: { messages: Message[] }) {
           className={'inline-block mt-4 ' + (!msg.incoming ? 'ml-auto' : 'mr-auto')}>
           <div className="flex gap-3 mb-2">
             <div className={'flex flex-col ' + (msg.incoming ? 'order-2' : 'order-1')}>
-              <strong>{msg.incoming ? msg.userName : userContext.name}</strong>
+              <strong>{msg.incoming ? msg.userName : 'Vous'}</strong>
               <small className="italic text-grey">
                 {formatDate(new Date(msg.timestamp), 'd/m/Y')}
               </small>
