@@ -1,17 +1,18 @@
 import { Message } from '../types/Message';
-import { fakeChats } from './fakeData';
+import { filterMessagesByDate } from '../utils/filterMessagesByDate';
+import { fakeChats, fakeMessages } from './fakeData';
 
 export function getChats() {
   return new Promise<Message[]>((resolve, reject) => {
-    if (fakeChats.length === 0) reject('Erreur');
-    return resolve(fakeChats);
+    if (fakeChats.length === 0) reject('Aucune discussion trouvée');
+    else resolve(fakeChats);
   });
 }
 
 export function getMessagesByUserId(userId: string) {
-  const messages = fakeChats.filter((msg) => msg.userId === userId);
+  const messages = userId in fakeMessages ? fakeMessages[userId] : undefined;
   return new Promise<Message[]>((resolve, reject) => {
-    if (messages.length === 0) reject('Erreur');
-    return resolve(messages);
+    if (!messages) reject('Aucun message pour cet utilisateur');
+    else resolve(filterMessagesByDate(messages, 'asc'));
   });
 }
