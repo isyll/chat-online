@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import ChatItem from '../../components/ChatItem';
 import ChatItemLoader from '../../components/ChatItemLoader';
-import { ChatParamsContext } from '../../contexts/ChatParamsContext';
+import { ChatContext } from '../../contexts/ChatContext';
 
 function ChatListItems() {
-  const chatContext = useContext(ChatParamsContext);
+  const chatContext = useContext(ChatContext);
 
   return (
     <div className="overflow-y-scroll outline-none flex flex-col flex-1">

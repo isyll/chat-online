@@ -1,53 +1,84 @@
-import { useEffect, useState } from 'react';
+import { KeyboardEvent, useEffect, useState } from 'react';
 import Sidenav from './layout/Sidenav/Sidenav';
 import Sidebar from './layout/Sidebar/Sidebar';
 import ChatList from './layout/ChatList/ChatList';
 import Chat from './layout/Chat/Chat';
 import { Message } from './types/Message';
 import { getChats, getMessagesByUserId } from './api/chatService';
-import { ChatParamsContext } from './contexts/ChatParamsContext';
+import { ChatContext } from './contexts/ChatContext';
 import { Tab } from './types/Tab';
+import ChatPlaceholder from './layout/ChatPlaceholder/ChatPlaceholder';
+import { UserContext } from './contexts/UserContext';
+import UserData from './types/UserData';
+import { getUserData } from './api/userService';
 
 function App() {
   const [currentTab, setCurrentTab] = useState(Tab.chats);
   const [selectedChat, setSelectedChat] = useState<Message | undefined>();
+  const [user, setUser] = useState<UserData>({
+    email: '',
+    name: '',
+    avatar: '',
+    userId: '',
+  });
   const [chats, setChats] = useState<Message[]>([]);
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  let sidebarContent: JSX.Element | undefined;
+  let sidebarContent: JSX.Element;
   useEffect(() => {
-    getChats().then((res) => {
-      setTimeout(() => {
-        setChats(res);
-        setIsLoading(false);
-      }, 2300);
+    getUserData().then((res) => {
+      setUser(res);
+      getChats().then((res) => {
+        setTimeout(() => {
+          setChats(res);
+          setIsLoading(false);
+        }, 2300);
+      });
     });
   }, []);
   useEffect(() => {
     if (selectedChat) {
-      getMessagesByUserId(selectedChat?.userId!).then((msgs) => {
+      getMessagesByUserId(selectedChat.userId).then((msgs) => {
         setMessages(msgs);
       });
     } else {
+      /* empty */
     }
   }, [selectedChat]);
 
-  if (currentTab === Tab.chats) sidebarContent = <ChatList />;
+  const handleKeyPress = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      setSelectedChat(undefined);
+      setMessages([]);
+    }
+  };
+
+  if (currentTab === Tab.chats) {
+    sidebarContent = <ChatList />;
+  } else if (currentTab === Tab.archived) {
+    sidebarContent = <ChatList />;
+  } else if (currentTab === Tab.friends) {
+    sidebarContent = <ChatList />;
+  } else {
+    sidebarContent = <ChatList />;
+  }
 
   return (
-    <div className="h-screen flex">
-      <ChatParamsContext.Provider
-        value={{
-          isLoading: isLoading,
-          chats: chats,
-          currentTab: currentTab,
-          selectedChat: selectedChat,
-          onSelectChat: setSelectedChat,
-        }}>
-        <Sidenav onSelectTab={setCurrentTab} currentTab={currentTab} />
-        <Sidebar>{sidebarContent}</Sidebar>
-        <Chat messages={messages} />
-      </ChatParamsContext.Provider>
+    <div className="h-screen flex" onKeyDown={handleKeyPress} tabIndex={0}>
+      <UserContext.Provider value={user}>
+        <ChatContext.Provider
+          value={{
+            isLoading: isLoading,
+            chats: chats,
+            currentTab: currentTab,
+            selectedChat: selectedChat,
+            onSelectChat: setSelectedChat,
+          }}>
+          <Sidenav onSelectTab={setCurrentTab} currentTab={currentTab} />
+          <Sidebar>{sidebarContent}</Sidebar>
+          {messages.length ? <Chat messages={messages} /> : <ChatPlaceholder />}
+        </ChatContext.Provider>
+      </UserContext.Provider>
     </div>
   );
 }

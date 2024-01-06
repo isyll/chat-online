@@ -8,4 +8,5 @@ export interface Message {
   content: string | null;
   attachments: Attachment[];
   timestamp: string;
+  incoming: boolean;
 }
