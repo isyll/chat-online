@@ -23,8 +23,9 @@ function App() {
   });
   const [chats, setChats] = useState<Message[]>([]);
   const [messages, setMessages] = useState<Message[]>([]);
+  const [newMessage, setNewMessage] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
-  let sidebarContent: JSX.Element;
+
   useEffect(() => {
     getUserData().then((res) => {
       setUser(res);
@@ -36,6 +37,7 @@ function App() {
       });
     });
   }, []);
+
   useEffect(() => {
     if (selectedChat) {
       getMessagesByUserId(selectedChat.userId).then((msgs) => {
@@ -46,12 +48,16 @@ function App() {
     }
   }, [selectedChat]);
 
+  useEffect(() => {}, [newMessage]);
+
   const handleKeyPress = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
       setSelectedChat(undefined);
       setMessages([]);
     }
   };
+
+  let sidebarContent: JSX.Element;
 
   if (currentTab === Tab.chats) {
     sidebarContent = <ChatList />;
@@ -73,6 +79,7 @@ function App() {
             currentTab: currentTab,
             selectedChat: selectedChat,
             onSelectChat: setSelectedChat,
+            newMessageSent: setNewMessage,
           }}>
           <Sidenav onSelectTab={setCurrentTab} currentTab={currentTab} />
           <Sidebar>{sidebarContent}</Sidebar>

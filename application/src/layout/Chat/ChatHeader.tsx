@@ -3,6 +3,7 @@ import Avatar from '../../components/Avatar';
 import { ChatContext } from '../../contexts/ChatContext';
 import defaultAvatar from '../../assets/defaultAvatar.ico';
 import { FaEllipsisH } from 'react-icons/fa';
+import ShadowButton from '../../components/ShadowButton';
 
 function ChatHeader() {
   const chatContext = useContext(ChatContext);
@@ -23,9 +24,9 @@ function ChatHeader() {
         </div>
       </div>
       <div className="relative pr-16">
-        <button className="peer border border-secondary rounded-lg p-3 ease-out duration-150 focus:shadow-btn">
+        <ShadowButton className="peer p-3 border border-secondary">
           <FaEllipsisH />
-        </button>
+        </ShadowButton>
         <ul className="hidden absolute list-none bg-secondary w-24 shadow-md rounded-sm peer-focus:block transition-all ease-out duration-300">
           <li className="cursor-pointer px-3 py-2 hover:bg-light">Archiver</li>
           <li className="cursor-pointer px-3 py-2 hover:bg-light">Supprimer</li>

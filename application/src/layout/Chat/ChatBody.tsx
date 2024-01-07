@@ -8,7 +8,7 @@ function ChatBody({ messages }: { messages: Message[] }) {
   const userContext = useContext(UserContext);
 
   return (
-    <div className="flex flex-col px-6">
+    <div className="flex flex-col px-6 grow">
       {messages.map((msg, i) => (
         <div
           key={i}

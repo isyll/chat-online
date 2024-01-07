@@ -8,4 +8,5 @@ export const ChatContext = createContext<ChatParams>({
   selectedChat: undefined,
   currentTab: Tab.chats,
   onSelectChat: () => null,
+  newMessageSent: () => null,
 });

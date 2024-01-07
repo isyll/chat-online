@@ -7,4 +7,5 @@ export default interface ChatParams {
   selectedChat?: Message;
   currentTab: Tab;
   onSelectChat: (msg: Message) => void;
+  newMessageSent: (content: string) => void;
 }
