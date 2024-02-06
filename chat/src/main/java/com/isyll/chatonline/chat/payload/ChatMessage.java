@@ -1,6 +1,7 @@
 package com.isyll.chatonline.chat.payload;
 
 import lombok.*;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -11,5 +12,8 @@ public class ChatMessage {
 
     private String content;
     private ChatType type;
-    private String sender;
+    private String senderId;
+    private String recipientId;
+    private LocalDate timestamp;
+
 }
